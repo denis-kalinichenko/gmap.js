@@ -2,9 +2,10 @@
  * gmap.js 0.1.1
  *
  * MIT licensed
- *
+ * https://github.com/denis-kalinichenko/gmap.js
  * Copyright (C) 2014 - A script by Denis Kalinichenko
  */
+
 (function($) {
 $.fn.gmap = function ( options ) {
     options.location = ((options.location) ? options.location : false);
