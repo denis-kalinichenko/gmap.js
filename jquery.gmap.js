@@ -1,5 +1,5 @@
 /**
- * gmap.js 0.1.2
+ * gmap.js 0.2
  *
  * MIT licensed
  * https://github.com/denis-kalinichenko/gmap.js
@@ -33,27 +33,43 @@ $.fn.gmap = function ( options ) {
             // styles...
         };
 
-        // Get the HTML DOM element that will contain your map
-        // We are using a div with id="map" seen below in the <body>
-
-        // Create the Google Map using our element and options defined above
         var map = new google.maps.Map(mapElement, mapOptions);
 
-        // Let's also add a marker while we're at it
+        if( typeof options.location  === 'string' ) {
+            // single marker
+            geocoder.geocode( { 'address': options.location}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        icon: options.marker,
+                        title: options.title
+                    });
+                } else {
+                    console.error('Geocode was not successful for the following reason: ' + status);
+                }
+            });
 
-        geocoder.geocode( { 'address': options.location}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location,
-                    icon: options.marker,
-                    title: options.title
+        } else {
+            // multiple markers
+            options.location.forEach(function(address) {
+                geocoder.geocode( { 'address': address}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var location_code = results[0].geometry.location;
+                        map.setCenter(location_code);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: location_code,
+                            icon: options.marker,
+                            title: options.title
+                        });
+                    } else {
+                        console.error('Geocode was not successful for the following reason: ' + status);
+                    }
                 });
-            } else {
-                console.error('Geocode was not successful for the following reason: ' + status);
-            }
-        });
+            });
+        }
 
     });
 };
