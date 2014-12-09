@@ -25,11 +25,16 @@ All you need to do is call the plugin inside a `$(document).ready` function:
 ```javascript
 $(document).ready(function() {
     $(".map").gmap({
-        'zoom': 16, // default value is 13
-        'location': '1600 Amphitheatre Parkway, Mountain View', // example address
-        'title': 'My Home',
-        'marker':'img/map_marker.png'
+        zoom: 16, // default value is 13
+        location: '1600 Amphitheatre Parkway, Mountain View', // example address
+        title: 'My Home',
+        marker:'img/map_marker.png'
     });
 });
 ```
 You can use complex initialization with all options, __'location' option__ is __`required`__.
+
+
+###Version
+
+0.1.2
