@@ -6,11 +6,11 @@
  * Copyright (C) 2014 - A script by Denis Kalinichenko
  */
 
-(function($) {
 $.fn.gmap = function ( options ) {
     options.location = ((options.location) ? options.location : false);
     if(!options.location) {
         console.error("Map location is undefined");
+        $(this).text("Map location is undefined").css("color", "red");
         return false;
     }
     options.zoom = ((options.zoom > 0) ? options.zoom : 13);
@@ -48,7 +48,7 @@ $.fn.gmap = function ( options ) {
                     map: map,
                     position: results[0].geometry.location,
                     icon: options.marker,
-                    title: options.location
+                    title: options.title
                 });
             } else {
                 console.error('Geocode was not successful for the following reason: ' + status);
@@ -57,4 +57,3 @@ $.fn.gmap = function ( options ) {
 
     });
 };
-});
