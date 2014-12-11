@@ -1,5 +1,5 @@
 /**
- * gmap.js 0.2
+ * gmap.js 0.3
  *
  * MIT licensed
  * https://github.com/denis-kalinichenko/gmap.js
@@ -17,9 +17,8 @@ $.fn.gmap = function ( options ) {
     options.title = ((options.title) ? options.title : options.location);
     options.marker = ((options.marker) ? options.marker : '');
 
-    var mapElement = $(this)[0];
+        var mapElement = $(this)[0];
 
-    google.maps.event.addDomListener(window, 'load', function () {
         var geocoder = new google.maps.Geocoder();
 
         // Basic options for a simple Google Map
@@ -30,7 +29,7 @@ $.fn.gmap = function ( options ) {
             // How you would like to style the map.
             // This is where you would paste any style found on Snazzy Maps.
 
-            // styles...
+            /* styles here */
         };
 
         var map = new google.maps.Map(mapElement, mapOptions);
@@ -70,6 +69,4 @@ $.fn.gmap = function ( options ) {
                 });
             });
         }
-
-    });
 };

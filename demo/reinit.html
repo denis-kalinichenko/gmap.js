@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>gmap.js Demo</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Google Maps JavaScript API v3 -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script type="text/javascript" src="../jquery.gmap.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var map = $("#map");
+
+            map.gmap({
+                zoom: 12,
+                location: "Langiewicza 33 Rzeszów",
+                title: 'My Home',
+                marker:'img/map-marker.png'
+            });
+
+            $("#reinit").on("click", function(event) {
+                event.preventDefault();
+
+                var new_address = $("#address").val();
+
+                map.gmap({
+                    zoom: 12,
+                    location: new_address,
+                    title: 'My Home',
+                    marker:'img/map-marker.png'
+                });
+
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        #map {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<br/>
+
+<input type="text" placeholder="Type an address" id="address"/> <input type="button" value="Load Map" id="reinit"/>
+
+</body>
+</html>
