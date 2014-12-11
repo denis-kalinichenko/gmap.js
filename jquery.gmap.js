@@ -30,6 +30,7 @@ $.fn.gmap = function ( options ) {
             // This is where you would paste any style found on Snazzy Maps.
 
             /* styles here */
+
         };
 
         var map = new google.maps.Map(mapElement, mapOptions);
