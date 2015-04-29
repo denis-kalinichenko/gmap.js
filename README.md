@@ -37,4 +37,4 @@ You can use complex initialization with all options, __'location' option__ is __
 
 ###Version
 
-0.3
+0.3.1
