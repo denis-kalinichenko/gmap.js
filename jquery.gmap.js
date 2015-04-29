@@ -1,5 +1,5 @@
 /**
- * gmap.js 0.3
+ * gmap.js 0.3.1
  *
  * MIT licensed
  * https://github.com/denis-kalinichenko/gmap.js
@@ -7,6 +7,15 @@
  */
 
 $.fn.gmap = function ( options ) {
+    
+    var data = $(this).data("gmap"); //TODO updating map
+    if ( !data ) { // first init
+        var state = {};
+        $(this).data("gmap", state);
+    } else {
+        // update
+    }
+    
     options.location = ((options.location) ? options.location : false);
     if(!options.location) {
         console.error("Map location is undefined");
