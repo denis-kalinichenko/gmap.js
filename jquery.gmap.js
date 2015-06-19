@@ -90,9 +90,4 @@ $.fn.gmap = function ( options ) {
                 });
             });
         }
-
-
-    function setNewMarkers(data) {
-        alert(data);
-    }
 };
