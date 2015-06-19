@@ -58,7 +58,7 @@ $.fn.gmap = function ( options ) {
 
                     if(options.onMarkerClick) {
                         google.maps.event.addListener(marker, 'click', function() {
-                            options.onMarkerClick(map);
+                            options.onMarkerClick(map, marker);
                         });
                     }
                 } else {
@@ -81,7 +81,7 @@ $.fn.gmap = function ( options ) {
                         });
                         if(options.onMarkerClick) {
                             google.maps.event.addListener(marker, 'click', function() {
-                                options.onMarkerClick(map);
+                                options.onMarkerClick(map, marker);
                             });
                         }
                     } else {

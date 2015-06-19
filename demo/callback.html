@@ -23,8 +23,10 @@
                 location: address,
                 title: 'My Home',
                 marker:'img/map-marker.png',
-                onMarkerClick: function(map) {
+                onMarkerClick: function(map, marker) {
+                    // your code...
                     map.setZoom(15);
+                    map.setCenter(marker.getPosition());
                 }
             });
         });

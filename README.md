@@ -28,7 +28,12 @@ $(document).ready(function() {
         zoom: 16, // default value is 13
         location: '1600 Amphitheatre Parkway, Mountain View', // string or array
         title: 'My Home',
-        marker:'img/map_marker.png'
+        marker:'img/map_marker.png',
+        onMarkerClick: function(map, marker) {
+            // your code...
+            map.setZoom(15);
+            map.setCenter(marker.getPosition());
+        }
     });
 });
 ```
