@@ -17,6 +17,8 @@
             var map = $("#map");
 
             var address = [ "Langiewicza 33 Rzeszów", "Wyspiańskiego 41D Rzeszów" ];
+            var infowindow = new google.maps.InfoWindow({
+            });
 
             map.gmap({
                 zoom: 12,
@@ -28,6 +30,14 @@
                     map.setZoom(15);
                     map.setCenter(marker.getPosition());
 //                    marker.setMap(null);
+                },
+                onMarkerHover: function(map, marker) {
+                    var content = "<div style='width: 300px;height: 100px;color: #4f5b6f;'>"+marker.getPosition()+"</div>";
+                    infowindow.setContent(content);
+                    infowindow.open(map, marker);
+                },
+                onMarkerHoverEnd: function(map, marker) {
+                    infowindow.close();
                 },
                 onZoom: function(zoom) {
                     console.log("zoom:" + zoom);

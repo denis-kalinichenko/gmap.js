@@ -1,5 +1,5 @@
 /**
- * gmap.js 0.4.1
+ * gmap.js 0.4.5
  *
  * MIT licensed
  * https://github.com/denis-kalinichenko/gmap.js
@@ -61,6 +61,16 @@ $.fn.gmap = function ( options ) {
                             options.onMarkerClick(map, marker);
                         });
                     }
+                    if(options.onMarkerHover) {
+                        google.maps.event.addListener(marker, 'mouseover', function() {
+                            options.onMarkerHover(map, marker);
+                        });
+                    }
+                    if(options.onMarkerHoverEnd) {
+                        google.maps.event.addListener(marker, 'mouseout', function() {
+                            options.onMarkerHoverEnd(map, marker);
+                        });
+                    }
                 } else {
                     console.error('Geocode was not successful for the following reason: ' + status);
                 }
@@ -82,6 +92,16 @@ $.fn.gmap = function ( options ) {
                         if(options.onMarkerClick) {
                             google.maps.event.addListener(marker, 'click', function() {
                                 options.onMarkerClick(map, marker);
+                            });
+                        }
+                        if(options.onMarkerHover) {
+                            google.maps.event.addListener(marker, 'mouseover', function() {
+                                options.onMarkerHover(map, marker);
+                            });
+                        }
+                        if(options.onMarkerHoverEnd) {
+                            google.maps.event.addListener(marker, 'mouseout', function() {
+                                options.onMarkerHoverEnd(map, marker);
                             });
                         }
                     } else {

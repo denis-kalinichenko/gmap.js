@@ -33,7 +33,27 @@ $(document).ready(function() {
             // your code...
             map.setZoom(15);
             map.setCenter(marker.getPosition());
-        }
+        },
+         onMarkerClick: function(map, marker) {
+             // your code...
+             map.setZoom(15);
+             map.setCenter(marker.getPosition());
+             //marker.setMap(null);
+         },
+         onMarkerHover: function(map, marker) {
+            // example code...
+             var content = "<div style='width: 300px;height: 100px;color: #4f5b6f;'>"+marker.getPosition()+"</div>";
+             infowindow.setContent(content);
+             infowindow.open(map, marker);
+         },
+         onMarkerHoverEnd: function(map, marker) {
+            // example code...
+             infowindow.close();
+         },
+         onZoom: function(zoom) {
+            // example code...
+             console.log("zoom:" + zoom);
+         }
     });
 });
 ```
@@ -42,4 +62,4 @@ You can use complex initialization with all options, __'location' option__ is __
 
 ###Version
 
-0.4.1
+0.4.5
