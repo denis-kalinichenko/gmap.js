@@ -47,11 +47,6 @@ $(document).ready(function() {
         zoom: 16, // default value is 13
         location: address, // array
         marker: 'img/map_marker.png',
-        onMarkerClick: function(map, marker) {
-            // your code...
-            map.setZoom(15);
-            map.setCenter(marker.getPosition());
-        },
          onMarkerClick: function(map, marker) {
              // your code...
              map.setZoom(15);
