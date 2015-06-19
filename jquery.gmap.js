@@ -1,5 +1,5 @@
 /**
- * gmap.js 0.3.1
+ * gmap.js 0.4
  *
  * MIT licensed
  * https://github.com/denis-kalinichenko/gmap.js
