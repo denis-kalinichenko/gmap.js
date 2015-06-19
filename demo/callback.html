@@ -27,6 +27,10 @@
                     // your code...
                     map.setZoom(15);
                     map.setCenter(marker.getPosition());
+//                    marker.setMap(null);
+                },
+                onZoom: function(zoom) {
+                    console.log("zoom:" + zoom);
                 }
             });
         });

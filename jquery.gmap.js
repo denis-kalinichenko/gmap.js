@@ -1,5 +1,5 @@
 /**
- * gmap.js 0.4
+ * gmap.js 0.4.1
  *
  * MIT licensed
  * https://github.com/denis-kalinichenko/gmap.js
@@ -88,6 +88,12 @@ $.fn.gmap = function ( options ) {
                         console.error('Geocode was not successful for the following reason: ' + status);
                     }
                 });
+            });
+        }
+
+        if(options.onZoom) {
+            google.maps.event.addListener(map, "idle", function() {
+                options.onZoom(map.getZoom());
             });
         }
 };
