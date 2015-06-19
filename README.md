@@ -24,6 +24,10 @@ All you need to do is call the plugin inside a `$(document).ready` function:
 
 ```javascript
 $(document).ready(function() {
+
+    var infowindow = new google.maps.InfoWindow({
+    });
+
     $(".map").gmap({
         zoom: 16, // default value is 13
         location: '1600 Amphitheatre Parkway, Mountain View', // string or array
