@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>gmap.js Demo</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Google Maps JavaScript API v3 -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script type="text/javascript" src="../jquery.gmap.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var map = $("#map");
+
+            var address = [ "Langiewicza 33 Rzeszów", "Wyspiańskiego 41D Rzeszów" ];
+
+            map.gmap({
+                zoom: 12,
+                location: address,
+                title: 'My Home',
+                marker:'img/map-marker.png',
+                onMarkerClick: function(map) {
+                    map.setZoom(15);
+                }
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        #map {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+</body>
+</html>

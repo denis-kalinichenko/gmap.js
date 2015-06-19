@@ -55,6 +55,12 @@ $.fn.gmap = function ( options ) {
                         icon: options.marker,
                         title: options.title
                     });
+
+                    if(options.onMarkerClick) {
+                        google.maps.event.addListener(marker, 'click', function() {
+                            options.onMarkerClick(map);
+                        });
+                    }
                 } else {
                     console.error('Geocode was not successful for the following reason: ' + status);
                 }
@@ -73,10 +79,20 @@ $.fn.gmap = function ( options ) {
                             icon: options.marker,
                             title: options.title
                         });
+                        if(options.onMarkerClick) {
+                            google.maps.event.addListener(marker, 'click', function() {
+                                options.onMarkerClick(map);
+                            });
+                        }
                     } else {
                         console.error('Geocode was not successful for the following reason: ' + status);
                     }
                 });
             });
         }
+
+
+    function setNewMarkers(data) {
+        alert(data);
+    }
 };
